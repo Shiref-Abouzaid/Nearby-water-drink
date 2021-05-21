@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "411863712056",
+    "project_id": "nearist-water",
+    "storage_bucket": "nearist-water.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411863712056:android:f390091712a0fb2c4b81cd",
+        "android_client_info": {
+          "package_name": "com.example.nearby_water_drink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411863712056-ormjmklab9t1o8ikq652ndk9g6gc0il3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdEtiPaa1muhaKQl_5DoW5m9VhA3XynD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411863712056-ormjmklab9t1o8ikq652ndk9g6gc0il3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
