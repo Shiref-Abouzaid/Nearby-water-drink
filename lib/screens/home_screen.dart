@@ -6,10 +6,16 @@ import '/constants.dart';
 import '/components/roundedButton.dart';
 import '/components/bottom_modal.dart';
 import '/services/location.dart';
-
+//import 'package:firebase_admob/firebase_admob.dart';
 class Home extends StatelessWidget {
+  // BannerAd _bannerAd;
+  // BannerAd createBannerAdd() {
+  //   return BannerAd(
+  //     adUnitId: BannerAd.testAdUnitId,
+  //     size: AdSize.smartBanner
+  //   );
+  // }
 
-  //toggle loading
 
   static String id = 'home_screen';
   _openBottomModal(context) {
