@@ -5,6 +5,8 @@ import '/screens/map_screen.dart';
 import '/screens/nearby_places_screen.dart';
 import '/screens/thank_you_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import '/screens/terms.dart';
+import '/screens/privacy.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -24,11 +26,13 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Patrick Hand',
       ),
       routes: {
-        AddLocation.id: (context) => AddLocation(),
-        Home.id:        (context) => Home(),
-        MapScreen.id:   (context) => MapScreen(),
-        NearbyPlaces.id:(context) => NearbyPlaces(),
-        ThankYouScreen.id:(context)=>ThankYouScreen()
+        AddLocation.id:   (context) => AddLocation(),
+        Home.id:          (context) => Home(),
+        MapScreen.id:     (context) => MapScreen(),
+        NearbyPlaces.id:  (context) => NearbyPlaces(),
+        ThankYouScreen.id:(context)=>ThankYouScreen(),
+        Terms.id:         (context)=>Terms(),
+        Privacy.id:       (context)=>Privacy()
       },
 
       //home: MyHomePage(title: 'Flutter Demo Home Page'),

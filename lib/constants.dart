@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 const Color kMainColor = Color(0xff3d819a);
-
+const kHeadLines = TextStyle(
+  color:Colors.black,
+  fontSize:25
+);
+const kParagraphStyle = TextStyle(
+  color: Colors.black,
+  fontSize:18
+);
 const  MaterialColor materialColorMAin = const MaterialColor(
   0xff3d819a,
   const <int, Color>{

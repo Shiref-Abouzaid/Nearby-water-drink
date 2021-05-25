@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '/screens/terms.dart';
+import '/screens/privacy.dart';
 class NavBar extends StatelessWidget {
 
 
@@ -30,7 +32,7 @@ class NavBar extends StatelessWidget {
             ),
             title: Text('Home'),
           ),
-
+          
           ListTile(
             onTap: () {
              launch('https://paypal.me/nearbyWater?locale.x=en_US');
@@ -45,7 +47,7 @@ class NavBar extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context, '/terms');
+              Navigator.pushNamed(context, Terms.id);
             },
             leading: Icon(
               Icons.check_circle,
@@ -56,17 +58,14 @@ class NavBar extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context, '/privacy');
+              Navigator.pushNamed(context, Privacy.id);
             },
             leading: Icon(
               Icons.privacy_tip,
               color: kMainColor,
             ),
-            title: Text('Privacy and copyrights'),
+            title: Text('Privacy'),
           ),
-
-
-
         ],
       ),
     );
