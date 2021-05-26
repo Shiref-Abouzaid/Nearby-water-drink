@@ -7,17 +7,20 @@ import '/components/roundedButton.dart';
 import '/components/bottom_modal.dart';
 import '/services/location.dart';
 //import 'package:firebase_admob/firebase_admob.dart';
-class Home extends StatelessWidget {
-  // BannerAd _bannerAd;
-  // BannerAd createBannerAdd() {
-  //   return BannerAd(
-  //     adUnitId: BannerAd.testAdUnitId,
-  //     size: AdSize.smartBanner
-  //   );
-  // }
 
-
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '/helper/ad_helper.dart';
+class Home extends StatefulWidget {
   static String id = 'home_screen';
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  BannerAd _ad;
+  bool isLoaded;
+
   _openBottomModal(context) {
     showModalBottomSheet(
       backgroundColor: Colors.white,
@@ -32,6 +35,47 @@ class Home extends StatelessWidget {
       builder: (BuildContext bc) {
         return BottomModal();
       });
+  }
+
+  @override
+  void dispose() {
+    _ad?.dispose();
+    super.dispose();
+  }
+  Widget checkForAd(){
+    if(isLoaded == true) {
+      return Container(
+  
+        child: AdWidget(
+          ad: _ad
+        ),
+        width: _ad.size.width.toDouble(),
+        alignment: Alignment.center,
+      );
+    } else {
+      return CircularProgressIndicator();
+    }
+  }
+  @override
+  void initState() {
+    super.initState();
+    _ad = BannerAd(
+      adUnitId: 'ca-app-pub-9548270312571067/2033447768',
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (_) {
+          setState(() {
+            isLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (_,err) {
+          print(err);
+        }
+      )
+    );
+
+    _ad.load();
   }
   @override
   Widget build(BuildContext context) {
@@ -60,6 +104,7 @@ class Home extends StatelessWidget {
                   height: 150,
                 ),
                 SizedBox(height: 20,),
+                checkForAd(),
                 Container(
                   width: 300,
                   child: Column(
@@ -120,9 +165,6 @@ class Home extends StatelessWidget {
                     _openBottomModal(context);
                   },
                 ),
-         
-
-
               ],
             )
           )
