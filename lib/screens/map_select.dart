@@ -8,7 +8,7 @@ import '/constants.dart';
 
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:rxdart/rxdart.dart';
+
 import '/screens/thank_you_screen.dart';
 import 'dart:async';
 
@@ -16,7 +16,7 @@ class MapSelect extends StatefulWidget {
   static String id = 'map_select';
   double lat;
   double lng;
-  
+
   //constractors
   MapSelect({this.lat,this.lng});
 
@@ -33,6 +33,8 @@ class _MapSelectState extends State<MapSelect> {
   Marker waterTapPosition;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   Geoflutterfire geo = Geoflutterfire();
+   
+
 
 // Future<dynamic> getBytesFromAsset(String path, int width) async {
 //   ByteData data = await rootBundle.load(path);
@@ -99,6 +101,7 @@ class _MapSelectState extends State<MapSelect> {
       super.initState();
       lat = widget.lat;
       lng = widget.lng;
+
     }
   @override
   Widget build(BuildContext context) {
@@ -133,6 +136,7 @@ class _MapSelectState extends State<MapSelect> {
                 if(waterTapPosition != null) waterTapPosition
               }
             ),
+
             if(waterTapPosition != null)
             Align(
               alignment: Alignment.bottomCenter,

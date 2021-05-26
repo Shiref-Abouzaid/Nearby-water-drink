@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
   Widget checkForAd(){
     if(isLoaded == true) {
       return Container(
-  
+        
         child: AdWidget(
           ad: _ad
         ),
@@ -53,20 +53,23 @@ class _HomeState extends State<Home> {
         alignment: Alignment.center,
       );
     } else {
-      return CircularProgressIndicator();
+      return Container(
+        height: 40,
+      );
     }
   }
   @override
   void initState() {
     super.initState();
     _ad = BannerAd(
-      adUnitId: 'ca-app-pub-9548270312571067/2033447768',
+      adUnitId: AdHelper.bannerAdUnitId,
       request: AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
         onAdLoaded: (_) {
           setState(() {
             isLoaded = true;
+      
           });
         },
         onAdFailedToLoad: (_,err) {
@@ -95,16 +98,16 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children:[
           SizedBox(height: 20),
+
           Expanded(
             flex:2,
             child:Column(
               children: [
                 Image(
                   image: AssetImage('images/cover_home.png'),
-                  height: 150,
+                  height: 120,
                 ),
                 SizedBox(height: 20,),
-                checkForAd(),
                 Container(
                   width: 300,
                   child: Column(
@@ -126,6 +129,7 @@ class _HomeState extends State<Home> {
             )
     
           ),
+ 
           Expanded(
             flex: 2,
             child: Column(
@@ -165,9 +169,13 @@ class _HomeState extends State<Home> {
                     _openBottomModal(context);
                   },
                 ),
+                
               ],
             )
-          )
+          ),
+         Expanded(
+            child: checkForAd(),
+          ),
         ]
       )
     );
