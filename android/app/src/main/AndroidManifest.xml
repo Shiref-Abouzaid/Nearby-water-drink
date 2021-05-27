@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
    <application
-        android:label="nearby_water_drink"
+        android:label="Nearby Water"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyAYnPJ3DboGCusgeUHUIgLZ1Rip8obTJes"/>
